@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOR AI</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Conversations">
+        <div class="brand-row">
+          <div class="brand-mark">S</div>
+          <div>
+            <h1>SOR AI</h1>
+            <p id="connectionStatus">Checking AI service</p>
+          </div>
+        </div>
+
+        <button class="primary-action" id="newChatButton" type="button">New chat</button>
+
+        <label class="search-box">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Find chats" />
+        </label>
+
+        <nav class="conversation-list" id="conversationList" aria-label="Saved conversations"></nav>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Full stack AI assistant</p>
+            <h2 id="conversationTitle">New conversation</h2>
+          </div>
+          <div class="top-actions">
+            <button class="ghost-button" id="exportButton" type="button">Export</button>
+            <button class="ghost-button danger" id="clearButton" type="button">Clear</button>
+          </div>
+        </header>
+
+        <section class="controls" aria-label="AI controls">
+          <label>
+            <span>Mode</span>
+            <select id="modeSelect">
+              <option value="general">General</option>
+              <option value="qa">Q&A Chat</option>
+              <option value="code">Code</option>
+              <option value="study">Study</option>
+              <option value="creative">Creative</option>
+              <option value="writing">Writing</option>
+            </select>
+          </label>
+          <label>
+            <span>Model</span>
+            <select id="modelSelect">
+              <option value="gpt-5.5">GPT-5.5</option>
+              <option value="gpt-5.1-mini">GPT-5.1 Mini</option>
+              <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
+            </select>
+          </label>
+          <label>
+            <span>Reasoning</span>
+            <select id="reasoningSelect">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label>
+            <span>Tone</span>
+            <select id="toneSelect">
+              <option value="balanced">Balanced</option>
+              <option value="direct">Direct</option>
+              <option value="friendly">Friendly</option>
+              <option value="technical">Technical</option>
+            </select>
+          </label>
+          <label>
+            <span>Language</span>
+            <select id="languageSelect">
+              <option value="auto">Auto detect</option>
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="hinglish">Hinglish</option>
+              <option value="gu">Gujarati</option>
+              <option value="mr">Marathi</option>
+              <option value="ta">Tamil</option>
+              <option value="te">Telugu</option>
+              <option value="bn">Bengali</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="ar">Arabic</option>
+            </select>
+          </label>
+          <label>
+            <span>Avatar</span>
+            <select id="avatarSelect">
+              <option value="nova">Nova</option>
+              <option value="mentor">Mentor</option>
+              <option value="coder">Coder</option>
+              <option value="calm">Calm</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="system-panel">
+          <label>
+            <span>Custom instructions</span>
+            <input id="systemPromptInput" type="text" placeholder="Example: answer like a senior MERN mentor" />
+          </label>
+        </section>
+
+        <section class="avatar-panel" aria-label="Virtual avatar">
+          <div class="avatar-stage" id="avatarStage">
+            <div class="avatar-orbit"></div>
+            <div class="avatar-face" id="avatarFace">
+              <span class="avatar-eye"></span>
+              <span class="avatar-eye"></span>
+              <span class="avatar-mouth"></span>
+            </div>
+          </div>
+          <div class="avatar-copy">
+            <p class="eyebrow">Virtual avatar</p>
+            <h3 id="avatarName">Nova</h3>
+            <p id="avatarStatus">Ready for multilingual chat</p>
+          </div>
+          <button class="ghost-button" id="speakButton" type="button">Speak last</button>
+        </section>
+
+        <section class="messages" id="messages" aria-live="polite"></section>
+
+        <form class="composer" id="composer">
+          <div class="tool-row">
+            <button type="button" data-tool="ask">Ask better</button>
+            <button type="button" data-tool="improve">Improve prompt</button>
+            <button type="button" data-tool="write">Write draft</button>
+            <button type="button" data-tool="plan">Plan</button>
+            <button type="button" data-tool="explain">Explain</button>
+            <button type="button" id="regenerateButton">Regenerate</button>
+          </div>
+          <div class="input-row">
+            <textarea id="messageInput" rows="1" placeholder="Write your question here. Shift + Enter for a new line."></textarea>
+            <button class="send-button" id="sendButton" type="submit">Send</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
